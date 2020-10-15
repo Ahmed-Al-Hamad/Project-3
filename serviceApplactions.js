@@ -3,13 +3,13 @@ const app = express();
 const port = 3000;
 const db={orgnization:{},
           service:{},
-          user:{} } 
+          user:{}} 
   const register={}
 const informationUser={};
 app.use(express.json())
 app.get("",(req,res)=>{
 })
-const addmin_Opration=typOperation=>{
+const addmin_Opration=(typOperation,data)=>{
   if(typOperation==="add-service") {
     
   }
@@ -25,7 +25,8 @@ const addmin_Opration=typOperation=>{
 }
 app.post('/addminOperation/:typOperation',(req,res)=>{
 if(req.params.typOperation==="add-service") {
-  addmin_Opration(req.params.typOperation)
+  addmin_Opration(req.params.typOperation,req.body)
+  res.json("Added successfully")
 }
 if(req.params.typOperation==="add-organisation"){
   addmin_Opration(req.params.typOperation)
@@ -37,6 +38,7 @@ if(req.params.typOperation==="info-user"){
   addmin_Opration(req.params.typOperation)
 }
 })
+
 app.listen(port, () => {
 console.log(`Example app listening at http://localhost:${port}`);
 });
