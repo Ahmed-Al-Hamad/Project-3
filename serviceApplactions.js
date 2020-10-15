@@ -7,19 +7,36 @@ const db={orgnization:{},
   const register={}
 const informationUser={};
 app.use(express.json())
-app.get("/h/:typ",(req,res)=>{
-  if(req.params.typ==="add"){
-res.json("true") ; 
-console.log(req.params.typ)
-  }else res.json("false")
+app.get("",(req,res)=>{
 })
-
-app.post('/',(req,res)=>{
- 
-console.log(req.body.name)
-res.json(req.body.name)
+const addmin_Opration=typOperation=>{
+  if(typOperation==="add-service") {
+    
+  }
+  if(typOperation==="add-organisation"){
+    
+  }
+  if(typOperation==="add-user"){
+    
+  }
+  if(typOperation==="info-user"){
+    
+  }
+}
+app.post('/addminOperation/:typOperation',(req,res)=>{
+if(req.params.typOperation==="add-service") {
+  addmin_Opration(req.params.typOperation)
+}
+if(req.params.typOperation==="add-organisation"){
+  addmin_Opration(req.params.typOperation)
+}
+if(req.params.typOperation==="add-user"){
+  addmin_Opration(req.params.typOperation)
+}
+if(req.params.typOperation==="info-user"){
+  addmin_Opration(req.params.typOperation)
+}
 })
-
 app.listen(port, () => {
 console.log(`Example app listening at http://localhost:${port}`);
 });
