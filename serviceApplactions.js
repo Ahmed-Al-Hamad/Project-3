@@ -44,7 +44,26 @@ if(req.params.typOperation==="info-user"){
   res.json("Added successfully")
 }
 })
-app.get("",(req,res)=>{
+app.delete('/addminOperation/:typOperation',(req,res)=>{
+  if(req.params.typOperation==="delete-service") {
+    addmin_Opration(req.params.typOperation,req.body)
+    res.json("delete successfully")
+  }
+  if(req.params.typOperation==="delete-organisation"){
+    addmin_Opration(req.params.typOperation,req.body)
+    res.json("delete successfully")
+  }
+  if(req.params.typOperation==="delete-user"){
+    addmin_Opration(req.params.typOperation,req.body)
+    res.json("delete successfully")
+  }
+  if(req.params.typOperation==="info-user"){
+    addmin_Opration(req.params.typOperation,req.body)
+    res.json("delete successfully")
+  }
+})
+app.get("/",(req,res)=>{
+
 })
 
 app.listen(port, () => {
