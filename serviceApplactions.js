@@ -27,40 +27,31 @@ const addmin_Opration=(typOperation,data)=>{
   }
 }
 app.post('/addminOperation/:typOperation',(req,res)=>{
-if(req.params.typOperation==="add-service") {
-  addmin_Opration(req.params.typOperation,req.body)
-  res.json("Added successfully")
-}
-if(req.params.typOperation==="add-organisation"){
-  addmin_Opration(req.params.typOperation,req.body)
-  res.json("Added successfully")
-}
-if(req.params.typOperation==="add-user"){
-  addmin_Opration(req.params.typOperation,req.body)
-  res.json("Added successfully")
-}
-if(req.params.typOperation==="info-user"){
-  addmin_Opration(req.params.typOperation,req.body)
-  res.json("Added successfully")
-}
+ addmin_Opration(req.params.typOperation,req.body)
+ res.json("Added successfully")
 })
+// delete function
+const addmin_Delete=typOperation=>{
+  if(typOperation==="delete-service") {
+    db.service=" "
+    console.log(db.service)
+  }
+  if(typOperation==="delete-organisation"){
+    db.orgnization=" "
+    console.log(db.orgnization)
+  }
+  if(typOperation==="delete-user"){
+    db.user=" "
+    console.log(db.user)
+  }
+  if(typOperation==="info-user"){
+    db.informationUser=" "
+    console.log(db.informationUser)
+  }
+}
 app.delete('/addminOperation/:typOperation',(req,res)=>{
-  if(req.params.typOperation==="delete-service") {
-    addmin_Opration(req.params.typOperation,req.body)
-    res.json("delete successfully")
-  }
-  if(req.params.typOperation==="delete-organisation"){
-    addmin_Opration(req.params.typOperation,req.body)
-    res.json("delete successfully")
-  }
-  if(req.params.typOperation==="delete-user"){
-    addmin_Opration(req.params.typOperation,req.body)
-    res.json("delete successfully")
-  }
-  if(req.params.typOperation==="info-user"){
-    addmin_Opration(req.params.typOperation,req.body)
-    res.json("delete successfully")
-  }
+  addmin_Delete(req.params.typOperation)
+  res.json("Delete successfully")
 })
 app.get("/",(req,res)=>{
 
