@@ -11,7 +11,8 @@ app.get("",(req,res)=>{
 })
 const addmin_Opration=(typOperation,data)=>{
   if(typOperation==="add-service") {
-    
+    db.service=data
+    console.log(db.service)
   }
   if(typOperation==="add-organisation"){
     
