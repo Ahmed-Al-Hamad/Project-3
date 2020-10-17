@@ -5,18 +5,19 @@ const db={orgnization:{},
           service:{},
           user:{}} 
   const register={}
-const informationUser={};
+let informationUser={};
 app.use(express.json())
 // registeration user
-const registerUser=(id_body,firstName_body,middleName_body,lasteName_body,phNum_body,address_body,email_body,password_body)=>{
+const registerUser=(allInfo,id_body,firstName_body,middleName_body,lasteName_body,phNum_body,address_body,email_body,password_body)=>{
 
 if(id_body>0&&id_body!==0&&firstName_body!==" "&&middleName_body!==" "&&lasteName_body!==" "&&phNum_body!==" "&&address_body!==" "&&email_body!==" "&&password_body!==" "){
+  informationUser=allInfo
   console.log(informationUser)
   return "successfully registered"
 }else return "All fields are requirid"
 }
 app.post("/registerNewUser",(req,res)=>{
-let result=  registerUser(req.body.id,req.body.firstName,req.body.middleName,req.body.lastName,req.body.phNum,req.body.address,req.body.email,req.body.passowrd)
+let result=  registerUser(req.body,req.body.id,req.body.firstName,req.body.middleName,req.body.lastName,req.body.phNum,req.body.address,req.body.email,req.body.passowrd)
 res.json(result)
 })
 // function login
