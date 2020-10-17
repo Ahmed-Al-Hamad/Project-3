@@ -78,8 +78,13 @@ app.delete('/addminOperation/:typOperation',(req,res)=>{
   addmin_Delete(req.params.typOperation)
   res.json("Delete successfully")
 })
-app.get("/",(req,res)=>{
-
+//query user
+app.get("/queryUser/:typQuery",(req,res)=>{
+if(typQuery==="organaization"){
+  res.json(orgnization)
+}else if(typQuery==="service"){
+  res.json(service)
+}else res.json(service)
 })
 
 app.listen(port, () => {
