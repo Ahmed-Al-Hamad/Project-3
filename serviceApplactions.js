@@ -11,6 +11,7 @@ app.use(express.json())
 const registerUser=(id_body,firstName_body,middleName_body,lasteName_body,phNum_body,address_body,email_body,password_body)=>{
 
 if(id_body>0&&id_body!==0&&firstName_body!==" "&&middleName_body!==" "&&lasteName_body!==" "&&phNum_body!==" "&&address_body!==" "&&email_body!==" "&&password_body!==" "){
+  console.log(informationUser)
   return "successfully registered"
 }else return "All fields are requirid"
 }
@@ -27,6 +28,7 @@ app.get("/login",(req,res)=>{
     res.json("login successfully")
   }
   else res.json("Please create an account on the site to be able to benefit from the services")
+  console.log(informationUser)
   })
   
 //function to Add Admin
@@ -77,7 +79,6 @@ app.delete('/addminOperation/:typOperation',(req,res)=>{
 })
 app.get("/",(req,res)=>{
 
-})
 })
 
 app.listen(port, () => {
