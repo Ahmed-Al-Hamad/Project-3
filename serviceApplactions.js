@@ -9,32 +9,25 @@ const informationUser={};
 app.use(express.json())
 // registeration user
 const registerUser=(id_body,firstName_body,middleName_body,lasteName_body,phNum_body,address_body,email_body,password_body)=>{
-  let result
+
 if(id_body>0&&id_body!==0){
   informationUser.id=id_body
-}else result+= "pleas the id is importent you should insert it"+" "
-if(firstName_body!==" "){
+}else if(firstName_body!==" "){
   informationUser.firstName=firstName_body
-}else result+= " the first name is requrid"+" "
-if(middleName_body!==" "){
+}else if(middleName_body!==" "){
   informationUser.middleName=middleName_body
-}else result+= " the middle name is requrid"+" "
-if(lasteName_body!==" "){
+}else if(lasteName_body!==" "){
   informationUser.lastName=lasteName_body
-}else result+= " the last name is requrid"+" "
-if(phNum_body!==" "){
+}else if(phNum_body!==" "){
   informationUser.phNum=phNum_body
-}else result+= " the phon number is requrid"+" "
-if(address_body!==" "){
+}else if(address_body!==" "){
   informationUser.address=address_body
-}else result+= " the address is requrid"+" "
-if(email_body!==" "){
+}else if(email_body!==" "){
   informationUser.email=email_body
-}else result+=" the email is requrid"+" "
-if(password_body!==" "){
+}else if(password_body!==" "){
   informationUser.passowrd=password_body
-}else result+= " the password is requrid"+" "
-return result
+}
+return "All filds are requirid"
 }
 app.post("/registerNewUser",(req,res)=>{
 let result=  registerUser(req.body.id,req.body.firstName,req.body.middleName,req.body.lastName,req.body.phNum,req.body.address,req.body.email,req.body.passowrd)
