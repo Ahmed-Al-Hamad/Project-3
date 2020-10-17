@@ -10,24 +10,9 @@ app.use(express.json())
 // registeration user
 const registerUser=(id_body,firstName_body,middleName_body,lasteName_body,phNum_body,address_body,email_body,password_body)=>{
 
-if(id_body>0&&id_body!==0){
-  informationUser.id=id_body
-}else if(firstName_body!==" "){
-  informationUser.firstName=firstName_body
-}else if(middleName_body!==" "){
-  informationUser.middleName=middleName_body
-}else if(lasteName_body!==" "){
-  informationUser.lastName=lasteName_body
-}else if(phNum_body!==" "){
-  informationUser.phNum=phNum_body
-}else if(address_body!==" "){
-  informationUser.address=address_body
-}else if(email_body!==" "){
-  informationUser.email=email_body
-}else if(password_body!==" "){
-  informationUser.passowrd=password_body
-}
-return "All filds are requirid"
+if(id_body>0&&id_body!==0&&firstName_body!==" "&&middleName_body!==" "&&lasteName_body!==" "&&phNum_body!==" "&&address_body!==" "&&email_body!==" "&&password_body!==" "){
+  return "successfully registered"
+}else return "All fields are requirid"
 }
 app.post("/registerNewUser",(req,res)=>{
 let result=  registerUser(req.body.id,req.body.firstName,req.body.middleName,req.body.lastName,req.body.phNum,req.body.address,req.body.email,req.body.passowrd)
@@ -92,6 +77,7 @@ app.delete('/addminOperation/:typOperation',(req,res)=>{
 })
 app.get("/",(req,res)=>{
 
+})
 })
 
 app.listen(port, () => {
