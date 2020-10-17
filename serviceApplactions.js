@@ -7,6 +7,36 @@ const db={orgnization:{},
   const register={}
 const informationUser={};
 app.use(express.json())
+// registeration user
+const registerUser=(id_body,firstName_body,middleName_body,lasteName_body,phNum_body,address_body,email_body,password_body)=>{
+if(id_body>0&&id_body!==0){
+  informationUser.id=id_body
+}else return "pleas the id is importent you should insert it"
+if(firstName_body!==" "){
+  informationUser.firstName=firstName_body
+}else return " the first name is requrid"
+if(middleName_body!==" "){
+  informationUser.middleName=middleName_body
+}else return " the middle name is requrid"
+if(lasteName_body!==" "){
+  informationUser.lastName=lasteName_body
+}else return " the last name is requrid"
+if(phNum_body!==" "){
+  informationUser.phNum=phNum_body
+}else return " the phon number is requrid"
+if(address_body!==" "){
+  informationUser.address=address_body
+}else return " the address is requrid"
+if(email_body!==" "){
+  informationUser.email=email_body
+}else return " the email is requrid"
+if(password_body!==" "){
+  informationUser.passowrd=password_body
+}else return " the password is requrid"
+}
+app.post("/registerNewUser",(req,res)=>{
+  registerUser(req.body.id,req.body.firstName,req.body.middleName,req.body.lastName,req.body.phNum,req.body.address,req.body.email,req.body.passowrd)
+})
 //function to Add Admin
 const addmin_Opration=(typOperation,data)=>{
   if(typOperation==="add-service") {
